@@ -1,0 +1,22 @@
+#include <stdio.h>
+int main() {
+   int marks[5];
+   printf("Enter Hindi mark = ");
+   scanf("%d",&marks[0]);
+    printf("Enter English mark = ");
+   scanf("%d",&marks[1]);
+    printf("Enter Math mark = ");
+   scanf("%d",&marks[2]);
+    printf("Enter Physics mark = ");
+   scanf("%d",&marks[3]);
+    printf("Enter Chemistry mark = ");
+   scanf("%d",&marks[4]);
+   int sum;
+   sum = marks[0] + marks[1] + marks[2] + marks[3] + marks[4];
+   printf("Your sum is = %d\n",sum);
+  float parcent;
+   parcent = sum/500.0*100.0;
+   printf("Your Parcent is = %2f", parcent);
+   
+    return 0;
+}
