@@ -1,0 +1,19 @@
+#include <stdio.h>
+ void swap(int *n1, int *n2);
+int main() {
+    int num[2];
+    printf("Enter your number\n");
+    scanf("%d",&num[0]);
+    printf("Enter your number\n");
+    scanf("%d",&num[1]);
+    swap(&num[0],&num[1]);
+    printf("Swap your number\n");
+    printf("Your 1st number is = %d \n",num[0]);
+     printf("Your 2nd number is = %d ",num[1]);
+    return 0;
+}
+ void swap(int *n1, int *n2){
+     int tamp = *n1;
+     *n1 = *n2;
+     *n2 = tamp;
+ }
