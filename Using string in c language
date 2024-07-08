@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+void Printstring(char arr[]); 
+
+int main() {
+   char FirstName[] = "Anshu";
+   char LastName[] = "shrivastava";
+   
+   Printstring(FirstName);
+   Printstring(LastName);
+    return 0;
+}
+
+void Printstring(char arr[]){
+    for(char i = 0 ; arr[i] != '\0' ; i++){
+        printf("%c",arr[i]);
+    }
+    printf("\f");
+}
