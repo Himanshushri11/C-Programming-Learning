@@ -1,0 +1,116 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+struct Account {
+    int accountNumber;
+    char name[100];
+    double balance;
+};  
+
+void createAccount(struct Account accounts[], int *numAccounts);
+void viewAccount(struct Account accounts[], int numAccounts);
+void deposit(struct Account accounts[], int numAccounts);
+void withdraw(struct Account accounts[], int numAccounts);
+
+int main() {
+    struct Account accounts[100];
+    int numAccounts = 0;
+    int choice;
+    while (1) {
+        printf("\nBank management system\n");
+        printf("1. Create Account\n");
+        printf("2. View Account\n");
+        printf("3. Deposit\n");
+        printf("4. Withdraw\n");
+        printf("5. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+          
+        switch (choice) {
+            case 1:
+                createAccount(accounts, &numAccounts);
+                break;
+            case 2:
+                viewAccount(accounts, numAccounts);
+                break;
+            case 3:
+                deposit(accounts, numAccounts);
+                break;
+            case 4:
+                withdraw(accounts, numAccounts);
+                break;
+            case 5:
+                exit(0);
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+    }
+    return 0;
+}
+
+void createAccount(struct Account accounts[], int *numAccounts) {
+    struct Account newAccount;
+    printf("Enter Account Number: ");
+    scanf("%d", &newAccount.accountNumber);
+    printf("Enter Name: ");
+    scanf("%s", newAccount.name);
+    newAccount.balance = 0.0;
+    accounts[*numAccounts] = newAccount;
+    (*numAccounts)++;
+    printf("Account created successfully!\n");
+}
+
+void viewAccount(struct Account accounts[], int numAccounts) {
+    int accountNumber;
+    printf("Enter Account Number: ");
+    scanf("%d", &accountNumber);
+    for (int i = 0; i < numAccounts; i++) {
+        if (accounts[i].accountNumber == accountNumber) {
+            printf("Account Number: %d\n", accounts[i].accountNumber);
+            printf("Account Holder Name: %s\n", accounts[i].name);
+            printf("Available Balance: %.2f\n", accounts[i].balance);
+            return;
+        }
+    }
+    printf("Account Not Found!\n");
+}
+
+void deposit(struct Account accounts[], int numAccounts) {
+    int accountNumber;
+    double amount;
+    printf("Enter Account Number: ");
+    scanf("%d", &accountNumber);
+    printf("Enter deposit amount: ");
+    scanf("%lf", &amount);
+    for (int i = 0; i < numAccounts; i++) {
+        if (accounts[i].accountNumber == accountNumber) {
+            accounts[i].balance += amount;
+            printf("Deposit successful! New balance: %.2f\n", accounts[i].balance);
+            return;
+        }
+    }
+    printf("Account Not Found!\n");
+}
+
+void withdraw(struct Account accounts[], int numAccounts) {
+    int accountNumber;
+    double amount;
+    printf("Enter Account Number: ");
+    scanf("%d", &accountNumber);
+    printf("Enter amount to withdraw: ");
+    scanf("%lf", &amount);
+    for (int i = 0; i < numAccounts; i++) {
+        if (accounts[i].accountNumber == accountNumber) {
+            if (accounts[i].balance >= amount) {
+                accounts[i].balance -= amount;
+                printf("Withdrawal successful! New balance: %.2f\n", accounts[i].balance);
+            } else {
+                printf("Insufficient balance!\n");
+            }
+            return;
+        }
+    }
+    printf("Account NotFound!\n");
+}
