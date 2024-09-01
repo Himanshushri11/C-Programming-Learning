@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main(){
+    float unit,charge,finalValue;
+    printf("Enter your bill unit : ");
+    scanf("%f",&unit);
+    charge = unit/100*20;
+    finalValue = unit + charge;
+    printf("Added GST 20% ----\n");
+    if(unit <= 50){
+        printf("Your bill amount is : %f",unit * 0.50 + finalValue);
+    }
+    else if(unit > 50 && unit <= 100){
+        printf("Your bill amount is : %f",unit * 0.75 + finalValue);
+    }
+    else if(unit > 100 && unit <= 250){
+        printf("Your bill amount is : %f",unit * 1.20 + finalValue);
+    }
+    else{
+        printf("Your bill amount is : %f",unit * 1.50 + finalValue);
+    }
+}
