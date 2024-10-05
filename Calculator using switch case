@@ -1,0 +1,30 @@
+#include<stdio.h>
+int main(){
+    int num1,num2,ans;
+    printf("Enter your num : ");
+    scanf("%d",&num1);
+    printf("Enter your num : ");
+    scanf("%d",&num2);
+    printf("1.Adding\n");
+    printf("2.subtraction\n");
+    printf("3.multiplication\n");
+    printf("4.divistion\n");
+    printf("5.Remainder\n");
+    printf("Enter your option (1-4) : ");
+    scanf("%d",&ans);
+    switch(ans){
+        case 1: printf("Add : %d",num1+num2);
+        break;
+        case 2: printf("Sub : %d",num1-num2);
+        break;
+        case 3: printf("Mul : %d",num1*num2);
+        break;
+        case 4: printf("Div : %d",num1/num2);
+        break;
+        case 5: printf("Rem : %d",num1%num2);
+        break;
+        default: printf("invalid selection");
+    }
+    
+    return 0;
+}
